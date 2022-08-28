@@ -37,6 +37,8 @@
             this.label2 = new System.Windows.Forms.Label();
             this.btnSave = new System.Windows.Forms.Button();
             this.txtCategory = new System.Windows.Forms.TextBox();
+            this.txtDesc = new System.Windows.Forms.TextBox();
+            this.label3 = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.picClose)).BeginInit();
             this.SuspendLayout();
@@ -78,7 +80,7 @@
             // lblId
             // 
             this.lblId.AutoSize = true;
-            this.lblId.Location = new System.Drawing.Point(12, 161);
+            this.lblId.Location = new System.Drawing.Point(12, 301);
             this.lblId.Name = "lblId";
             this.lblId.Size = new System.Drawing.Size(22, 20);
             this.lblId.TabIndex = 20;
@@ -92,7 +94,7 @@
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel.Location = new System.Drawing.Point(596, 154);
+            this.btnCancel.Location = new System.Drawing.Point(596, 301);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(94, 35);
             this.btnCancel.TabIndex = 19;
@@ -116,7 +118,7 @@
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(485, 154);
+            this.btnSave.Location = new System.Drawing.Point(485, 301);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(94, 35);
             this.btnSave.TabIndex = 16;
@@ -131,11 +133,30 @@
             this.txtCategory.Size = new System.Drawing.Size(531, 26);
             this.txtCategory.TabIndex = 15;
             // 
+            // txtDesc
+            // 
+            this.txtDesc.Location = new System.Drawing.Point(159, 148);
+            this.txtDesc.Multiline = true;
+            this.txtDesc.Name = "txtDesc";
+            this.txtDesc.Size = new System.Drawing.Size(531, 130);
+            this.txtDesc.TabIndex = 21;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(12, 151);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(99, 20);
+            this.label3.TabIndex = 22;
+            this.label3.Text = "Description :";
+            // 
             // CatetgoryModule
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(716, 192);
+            this.ClientSize = new System.Drawing.Size(716, 339);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.txtDesc);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.lblId);
             this.Controls.Add(this.btnCancel);
@@ -166,5 +187,7 @@
         private System.Windows.Forms.Label label2;
         public System.Windows.Forms.Button btnSave;
         public System.Windows.Forms.TextBox txtCategory;
+        public System.Windows.Forms.TextBox txtDesc;
+        private System.Windows.Forms.Label label3;
     }
 }

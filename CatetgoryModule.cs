@@ -22,6 +22,7 @@ namespace ShopInventorySystem
         {
             txtCategory.Clear();
             txtCategory.Focus();
+            txtDesc.Clear();
             btnSave.Enabled = true;
             
         }
@@ -44,9 +45,10 @@ namespace ShopInventorySystem
                 {
                     DB_Connect.openConn();
                     MySqlCommand command;
-                    string query = "Insert into product_category(name) values(@name)";
+                    string query = "Insert into category(name,description) values(@name,@desc)";
                     command = new MySqlCommand(query, DB_Connect.con);
                     command.Parameters.AddWithValue("@name", txtCategory.Text);
+                    command.Parameters.AddWithValue("@desc", txtDesc.Text);
                     command.ExecuteNonQuery();
                     MessageBox.Show("Record has been successful saved.", "Point Of Sales");
                     Clear();

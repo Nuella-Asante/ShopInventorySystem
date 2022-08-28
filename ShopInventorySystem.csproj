@@ -116,6 +116,12 @@
     <Compile Include="ChangePassword.Designer.cs">
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </Compile>
+    <Compile Include="NewLogin.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="NewLogin.Designer.cs">
+      <DependentUpon>NewLogin.cs</DependentUpon>
+    </Compile>
     <Compile Include="Sales.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,7 +140,7 @@
     <Compile Include="AttendantDashboard.Designer.cs">
       <DependentUpon>AttendantDashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="db_con.cs" />
+    <Compile Include="DB_Connect.cs" />
     <Compile Include="Encrypt.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
@@ -148,11 +154,11 @@
     <Compile Include="LookUpProduct.designer.cs">
       <DependentUpon>LookUpProduct.cs</DependentUpon>
     </Compile>
-    <Compile Include="CategoryModule.cs">
+    <Compile Include="Category.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="CategoryModule.Designer.cs">
-      <DependentUpon>CategoryModule.cs</DependentUpon>
+    <Compile Include="Category.Designer.cs">
+      <DependentUpon>Category.cs</DependentUpon>
     </Compile>
     <Compile Include="Products.cs">
       <SubType>Form</SubType>
@@ -189,6 +195,9 @@
     <EmbeddedResource Include="ChangePassword.resx">
       <DependentUpon>ChangePassword.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="NewLogin.resx">
+      <DependentUpon>NewLogin.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Sales.resx">
       <DependentUpon>Sales.cs</DependentUpon>
     </EmbeddedResource>
@@ -204,8 +213,8 @@
     <EmbeddedResource Include="LookUpProduct.resx">
       <DependentUpon>LookUpProduct.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="CategoryModule.resx">
-      <DependentUpon>CategoryModule.cs</DependentUpon>
+    <EmbeddedResource Include="Category.resx">
+      <DependentUpon>Category.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Products.resx">
       <DependentUpon>Products.cs</DependentUpon>

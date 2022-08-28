@@ -34,10 +34,8 @@
             this.btnCancel = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
             this.txtPdesc = new System.Windows.Forms.TextBox();
             this.txtBarcode = new System.Windows.Forms.TextBox();
-            this.txtPcode = new System.Windows.Forms.TextBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.picClose = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
@@ -109,20 +107,11 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(376, 74);
+            this.label3.Location = new System.Drawing.Point(32, 71);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(81, 20);
             this.label3.TabIndex = 24;
             this.label3.Text = "Barcode :";
-            // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(32, 74);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(121, 20);
-            this.label2.TabIndex = 23;
-            this.label2.Text = "Product Code :";
             // 
             // txtPdesc
             // 
@@ -134,17 +123,10 @@
             // 
             // txtBarcode
             // 
-            this.txtBarcode.Location = new System.Drawing.Point(510, 71);
+            this.txtBarcode.Location = new System.Drawing.Point(166, 68);
             this.txtBarcode.Name = "txtBarcode";
-            this.txtBarcode.Size = new System.Drawing.Size(184, 26);
+            this.txtBarcode.Size = new System.Drawing.Size(528, 26);
             this.txtBarcode.TabIndex = 19;
-            // 
-            // txtPcode
-            // 
-            this.txtPcode.Location = new System.Drawing.Point(163, 71);
-            this.txtPcode.Name = "txtPcode";
-            this.txtPcode.Size = new System.Drawing.Size(194, 26);
-            this.txtPcode.TabIndex = 18;
             // 
             // panel1
             // 
@@ -342,10 +324,8 @@
             this.Controls.Add(this.btnCancel);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label3);
-            this.Controls.Add(this.label2);
             this.Controls.Add(this.txtPdesc);
             this.Controls.Add(this.txtBarcode);
-            this.Controls.Add(this.txtPcode);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.label4);
             this.Font = new System.Drawing.Font("Century Gothic", 11.25F);
@@ -372,10 +352,8 @@
         public System.Windows.Forms.Button btnCancel;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label2;
         public System.Windows.Forms.TextBox txtPdesc;
         public System.Windows.Forms.TextBox txtBarcode;
-        public System.Windows.Forms.TextBox txtPcode;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.PictureBox picClose;
         private System.Windows.Forms.Label label1;

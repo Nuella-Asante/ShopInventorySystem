@@ -119,7 +119,7 @@ namespace ShopInventorySystem
 
         private void btnCategory_Click(object sender, EventArgs e)
         {
-            openChildForm(new CategoryModule());
+            openChildForm(new Category());
         }
 
         private void btnUser_Click(object sender, EventArgs e)

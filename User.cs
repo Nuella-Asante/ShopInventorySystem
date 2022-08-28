@@ -68,9 +68,9 @@ namespace ShopInventorySystem
             int i = 0;
             dgvUser.Rows.Clear();
             string query = "Select * from user";
-            db_con.openConn();
+            DB_Connect.openConn();
             MySqlCommand command;
-            command = new MySqlCommand(query, db_con.con);
+            command = new MySqlCommand(query, DB_Connect.con);
             
             MySqlDataReader dr = command.ExecuteReader();
             while (dr.Read())
@@ -79,7 +79,7 @@ namespace ShopInventorySystem
                 dgvUser.Rows.Add(dr[0].ToString(), dr[2].ToString(), dr[5].ToString(), dr[6].ToString(), dr[7].ToString(), dr[1].ToString());
             }
             dr.Close();
-            db_con.closeConn();
+            DB_Connect.closeConn();
         }
 
         private void User_Load(object sender, EventArgs e)
@@ -92,9 +92,9 @@ namespace ShopInventorySystem
             if ((MessageBox.Show("You chose to remove this account from this System's user list. \n\n Are you sure you want to remove '" + name + "' \\ '" + role + "'", "User Account", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes))
             {
                 string query = "Delete from user where name = '"+ name +"'";
-                db_con.openConn();
+                DB_Connect.openConn();
                 MySqlCommand command;
-                command = new MySqlCommand(query, db_con.con);
+                command = new MySqlCommand(query, DB_Connect.con);
                 command.ExecuteNonQuery();
                 MessageBox.Show("Account has been successfully deleted");
                 LoadUser();
@@ -146,7 +146,7 @@ namespace ShopInventorySystem
                         MessageBox.Show("Password does not Match!", "Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                         return;
                     }
-                    db_con.openConn();
+                    DB_Connect.openConn();
                     MySqlCommand command; 
                     string user_id = generateUserID();
                     int is_active = 1;
@@ -165,7 +165,7 @@ namespace ShopInventorySystem
                     if (txtUsername.Text != "")
                     {
                         query = "Select * from user where username = '" + txtUsername.Text + "'";
-                        command = new MySqlCommand(query, db_con.con);
+                        command = new MySqlCommand(query, DB_Connect.con);
                         MySqlDataReader dr = command.ExecuteReader();
                         if (dr.HasRows)
                         {
@@ -182,7 +182,7 @@ namespace ShopInventorySystem
                     {
                         string enc_pass = Encrypt.HashString(txtPass.Text);
                         query = "Insert into user(user_id,username,name,email,dob,phone,role,gender,password,is_active) values(@user_id,@username,@name,@email,@dob,@phone,@role,@gender,@password,@is_active)";
-                        command = new MySqlCommand(query, db_con.con);
+                        command = new MySqlCommand(query, DB_Connect.con);
                         command.Parameters.AddWithValue("@user_id", user_id);
                         command.Parameters.AddWithValue("@username", txtUsername.Text);
                         command.Parameters.AddWithValue("@name", txtName.Text);

@@ -23,7 +23,7 @@ namespace ShopInventorySystem
         {
             int i = 0;
             dgvProduct.Rows.Clear();
-            string query = "Select * from products order by product_name";
+            string query = "Select * from products order by name";
             DB_Connect.openConn(); 
             MySqlCommand command;
             command = new MySqlCommand(query, DB_Connect.con);
@@ -33,7 +33,7 @@ namespace ShopInventorySystem
             {
                 
                 i++;
-                dgvProduct.Rows.Add(i, dr["product_code"].ToString(), dr["product_barcode"].ToString(), dr["product_name"].ToString(), dr["product_category"].ToString(), dr["price"].ToString(), dr["re_order"].ToString());
+                dgvProduct.Rows.Add(i, dr["id"].ToString(), dr["barcode"].ToString(), dr["name"].ToString(), dr["category"].ToString(), dr["price"].ToString(), dr["re_order"].ToString());
             }
             dr.Close();
             DB_Connect.closeConn();
@@ -57,7 +57,6 @@ namespace ShopInventorySystem
             if (colName == "Edit")
             {
                 CreateUpdateProduct product = new CreateUpdateProduct();
-                product.txtPcode.Text = dgvProduct.Rows[e.RowIndex].Cells[1].Value.ToString();
                 product.txtBarcode.Text = dgvProduct.Rows[e.RowIndex].Cells[2].Value.ToString();
                 product.txtPname.Text = dgvProduct.Rows[e.RowIndex].Cells[3].Value.ToString();
 
@@ -66,7 +65,6 @@ namespace ShopInventorySystem
                 product.txtPrice.Text = dgvProduct.Rows[e.RowIndex].Cells[5].Value.ToString();
                 product.UDReOrder.Value = int.Parse(dgvProduct.Rows[e.RowIndex].Cells[6].Value.ToString());
                 
-                product.txtPcode.Enabled = false;
                 product.txtBarcode.Enabled = false;
                 product.btnSave.Visible = false;
                 product.btnSave.Enabled = false;

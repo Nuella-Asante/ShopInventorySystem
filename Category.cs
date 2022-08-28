@@ -11,9 +11,9 @@ using MySql.Data.MySqlClient;
 
 namespace ShopInventorySystem
 {
-    public partial class CategoryModule : Form
+    public partial class Category : Form
     {
-        public CategoryModule()
+        public Category()
         {
             InitializeComponent();
             LoadCategory();
@@ -23,7 +23,7 @@ namespace ShopInventorySystem
         {
             int i = 0;
             dgvCategory.Rows.Clear();
-            string query = "Select * from product_category order by name";
+            string query = "Select * from category order by name";
             DB_Connect.openConn();
             MySqlCommand command;
             command = new MySqlCommand(query, DB_Connect.con);
@@ -31,7 +31,7 @@ namespace ShopInventorySystem
             while (dr.Read())
             {
                 i++;
-                dgvCategory.Rows.Add(i,dr["name"].ToString(), dr["name"].ToString(), dr["name"]);
+                dgvCategory.Rows.Add(i,dr["name"].ToString(), dr["description"].ToString());
             }
             dr.Close();
             DB_Connect.closeConn();

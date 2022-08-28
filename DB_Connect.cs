@@ -7,7 +7,7 @@ using MySql.Data.MySqlClient;
 using System.Data;
 namespace ShopInventorySystem
 {
-    internal class db_con
+    internal class DB_Connect
     {
         public static string cs = @"server=localhost; userid=root; password=; database=inventory_system;";
         public static MySqlConnection con = new MySqlConnection(cs);
