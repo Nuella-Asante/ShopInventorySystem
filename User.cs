@@ -67,7 +67,7 @@ namespace ShopInventorySystem
         {
             int i = 0;
             dgvUser.Rows.Clear();
-            string query = "Select * from user";
+            string query = "Select * from users";
             DB_Connect.openConn();
             MySqlCommand command;
             command = new MySqlCommand(query, DB_Connect.con);
@@ -76,7 +76,7 @@ namespace ShopInventorySystem
             while (dr.Read())
             {
                 i++;
-                dgvUser.Rows.Add(dr[0].ToString(), dr[2].ToString(), dr[5].ToString(), dr[6].ToString(), dr[7].ToString(), dr[1].ToString());
+                dgvUser.Rows.Add(i,dr["username"].ToString(), dr["fullname"].ToString(), dr["email"].ToString(), dr["phone"].ToString(), dr["role"].ToString(), dr["status"].ToString());
             }
             dr.Close();
             DB_Connect.closeConn();
@@ -91,7 +91,7 @@ namespace ShopInventorySystem
         {
             if ((MessageBox.Show("You chose to remove this account from this System's user list. \n\n Are you sure you want to remove '" + name + "' \\ '" + role + "'", "User Account", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes))
             {
-                string query = "Delete from user where name = '"+ name +"'";
+                string query = "Delete from users where name = '"+ name +"'";
                 DB_Connect.openConn();
                 MySqlCommand command;
                 command = new MySqlCommand(query, DB_Connect.con);
@@ -133,7 +133,7 @@ namespace ShopInventorySystem
         {
             try
             {
-                if (txtName.Text == "" || txtPass.Text == "" || txtRePass.Text == "" ||  userGender.Text == "" || userRole.Text == "")
+                if (txtName.Text == "" || txtPass.Text == "" || txtRePass.Text == "" || userRole.Text == "")
                 {
                     MessageBox.Show("Fields cannot be Empty!","Error", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                     return;
@@ -164,7 +164,7 @@ namespace ShopInventorySystem
 
                     if (txtUsername.Text != "")
                     {
-                        query = "Select * from user where username = '" + txtUsername.Text + "'";
+                        query = "Select * from users where username = '" + txtUsername.Text + "'";
                         command = new MySqlCommand(query, DB_Connect.con);
                         MySqlDataReader dr = command.ExecuteReader();
                         if (dr.HasRows)
@@ -181,16 +181,14 @@ namespace ShopInventorySystem
                     if (!user_exists)
                     {
                         string enc_pass = Encrypt.HashString(txtPass.Text);
-                        query = "Insert into user(user_id,username,name,email,dob,phone,role,gender,password,is_active) values(@user_id,@username,@name,@email,@dob,@phone,@role,@gender,@password,@is_active)";
+                        query = "Insert into users(username,fullname,email,phone,role,password,status) values(@username,@name,@email,@phone,@role,@password,@is_active)";
                         command = new MySqlCommand(query, DB_Connect.con);
                         command.Parameters.AddWithValue("@user_id", user_id);
                         command.Parameters.AddWithValue("@username", txtUsername.Text);
                         command.Parameters.AddWithValue("@name", txtName.Text);
                         command.Parameters.AddWithValue("@email", txtEmail.Text);
-                        command.Parameters.AddWithValue("@dob", dob.Value.Date);
                         command.Parameters.AddWithValue("@phone", txtPhone.Text);
                         command.Parameters.AddWithValue("@role", role);
-                        command.Parameters.AddWithValue("@gender", userGender.Text);
                         command.Parameters.AddWithValue("@password", enc_pass);
                         command.Parameters.AddWithValue("@is_active", is_active);
                         command.ExecuteNonQuery();
@@ -266,6 +264,11 @@ namespace ShopInventorySystem
         {
             ResetUserPass resetPassword = new ResetUserPass();
             resetPassword.ShowDialog();
+        }
+
+        private void metroTabPage1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -40,8 +40,6 @@
             this.picClose = new System.Windows.Forms.PictureBox();
             this.label1 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.expDate = new MetroFramework.Controls.MetroDateTime();
             this.label9 = new System.Windows.Forms.Label();
             this.txtPname = new System.Windows.Forms.TextBox();
             this.btnUpdate = new System.Windows.Forms.Button();
@@ -72,7 +70,7 @@
             this.btnSave.FlatAppearance.BorderSize = 0;
             this.btnSave.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSave.ForeColor = System.Drawing.Color.White;
-            this.btnSave.Location = new System.Drawing.Point(483, 492);
+            this.btnSave.Location = new System.Drawing.Point(483, 437);
             this.btnSave.Name = "btnSave";
             this.btnSave.Size = new System.Drawing.Size(94, 35);
             this.btnSave.TabIndex = 21;
@@ -87,7 +85,7 @@
             this.btnCancel.FlatAppearance.BorderSize = 0;
             this.btnCancel.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnCancel.ForeColor = System.Drawing.Color.Black;
-            this.btnCancel.Location = new System.Drawing.Point(600, 492);
+            this.btnCancel.Location = new System.Drawing.Point(600, 437);
             this.btnCancel.Name = "btnCancel";
             this.btnCancel.Size = new System.Drawing.Size(94, 35);
             this.btnCancel.TabIndex = 30;
@@ -172,24 +170,6 @@
             this.label4.TabIndex = 26;
             this.label4.Text = "Description :";
             // 
-            // label5
-            // 
-            this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(32, 433);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(98, 20);
-            this.label5.TabIndex = 35;
-            this.label5.Text = "Expiry Date :";
-            // 
-            // expDate
-            // 
-            this.expDate.Location = new System.Drawing.Point(163, 427);
-            this.expDate.MinimumSize = new System.Drawing.Size(0, 29);
-            this.expDate.Name = "expDate";
-            this.expDate.Size = new System.Drawing.Size(529, 29);
-            this.expDate.TabIndex = 36;
-            this.expDate.ValueChanged += new System.EventHandler(this.metroDateTime1_ValueChanged);
-            // 
             // label9
             // 
             this.label9.AutoSize = true;
@@ -215,7 +195,7 @@
             this.btnUpdate.FlatAppearance.BorderSize = 0;
             this.btnUpdate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnUpdate.ForeColor = System.Drawing.Color.White;
-            this.btnUpdate.Location = new System.Drawing.Point(483, 492);
+            this.btnUpdate.Location = new System.Drawing.Point(483, 437);
             this.btnUpdate.Name = "btnUpdate";
             this.btnUpdate.Size = new System.Drawing.Size(94, 35);
             this.btnUpdate.TabIndex = 39;
@@ -307,7 +287,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(764, 539);
+            this.ClientSize = new System.Drawing.Size(764, 484);
             this.Controls.Add(this.UDReOrder);
             this.Controls.Add(this.txtPrice);
             this.Controls.Add(this.label8);
@@ -317,8 +297,6 @@
             this.Controls.Add(this.btnUpdate);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.txtPname);
-            this.Controls.Add(this.expDate);
-            this.Controls.Add(this.label5);
             this.Controls.Add(this.cboCategory);
             this.Controls.Add(this.btnSave);
             this.Controls.Add(this.btnCancel);
@@ -358,8 +336,6 @@
         private System.Windows.Forms.PictureBox picClose;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private MetroFramework.Controls.MetroDateTime expDate;
         private System.Windows.Forms.Label label9;
         public System.Windows.Forms.TextBox txtPname;
         public System.Windows.Forms.Button btnUpdate;

@@ -138,7 +138,7 @@ namespace ShopInventorySystem
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            +++++++++++++++++++++++++++++++++
+            
         }
 
         private void txtPname_TextChanged(object sender, EventArgs e)

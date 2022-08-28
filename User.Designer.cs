@@ -34,11 +34,6 @@
             this.btnEditUser = new System.Windows.Forms.Button();
             this.btnRemove = new System.Windows.Forms.Button();
             this.dgvUser = new System.Windows.Forms.DataGridView();
-            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.lblAccNote = new System.Windows.Forms.Label();
             this.btnResetPass = new System.Windows.Forms.Button();
@@ -62,13 +57,9 @@
             this.metroTabPage1 = new MetroFramework.Controls.MetroTabPage();
             this.txtUsername = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.userGender = new System.Windows.Forms.ComboBox();
-            this.label7 = new System.Windows.Forms.Label();
             this.txtPhone = new System.Windows.Forms.TextBox();
             this.txtEmail = new System.Windows.Forms.TextBox();
-            this.dob = new System.Windows.Forms.DateTimePicker();
             this.labelEmail = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.btnAccSave = new System.Windows.Forms.Button();
             this.btnAccCancel = new System.Windows.Forms.Button();
@@ -79,6 +70,13 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.Column7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.Column6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.dgvUser)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.gbUser.SuspendLayout();
@@ -145,11 +143,13 @@
             this.dgvUser.ColumnHeadersHeight = 30;
             this.dgvUser.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.DisableResizing;
             this.dgvUser.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
+            this.Column7,
             this.Column1,
             this.Column2,
             this.Column3,
             this.Column5,
-            this.Column4});
+            this.Column4,
+            this.Column6});
             this.dgvUser.EnableHeadersVisualStyles = false;
             this.dgvUser.Location = new System.Drawing.Point(14, 3);
             this.dgvUser.Name = "dgvUser";
@@ -160,50 +160,6 @@
             this.dgvUser.TabIndex = 3;
             this.dgvUser.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvUser_CellContentClick);
             this.dgvUser.SelectionChanged += new System.EventHandler(this.dgvUser_SelectionChanged);
-            // 
-            // Column1
-            // 
-            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column1.HeaderText = "User ID";
-            this.Column1.Name = "Column1";
-            this.Column1.ReadOnly = true;
-            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Column1.Width = 84;
-            // 
-            // Column2
-            // 
-            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column2.HeaderText = "Name";
-            this.Column2.Name = "Column2";
-            this.Column2.ReadOnly = true;
-            this.Column2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Column2.Width = 76;
-            // 
-            // Column3
-            // 
-            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column3.HeaderText = "Email";
-            this.Column3.Name = "Column3";
-            this.Column3.ReadOnly = true;
-            this.Column3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            // 
-            // Column5
-            // 
-            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column5.HeaderText = "Phone";
-            this.Column5.Name = "Column5";
-            this.Column5.ReadOnly = true;
-            this.Column5.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Column5.Width = 79;
-            // 
-            // Column4
-            // 
-            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.Column4.HeaderText = "Role";
-            this.Column4.Name = "Column4";
-            this.Column4.ReadOnly = true;
-            this.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
-            this.Column4.Width = 64;
             // 
             // pictureBox2
             // 
@@ -403,7 +359,7 @@
             // 
             // panel1
             // 
-            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(70)))), ((int)(((byte)(160)))));
+            this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.panel1.Controls.Add(this.label1);
             this.panel1.Dock = System.Windows.Forms.DockStyle.Bottom;
             this.panel1.Location = new System.Drawing.Point(0, 496);
@@ -441,13 +397,9 @@
             this.metroTabPage1.BackColor = System.Drawing.Color.White;
             this.metroTabPage1.Controls.Add(this.txtUsername);
             this.metroTabPage1.Controls.Add(this.label12);
-            this.metroTabPage1.Controls.Add(this.userGender);
-            this.metroTabPage1.Controls.Add(this.label7);
             this.metroTabPage1.Controls.Add(this.txtPhone);
             this.metroTabPage1.Controls.Add(this.txtEmail);
-            this.metroTabPage1.Controls.Add(this.dob);
             this.metroTabPage1.Controls.Add(this.labelEmail);
-            this.metroTabPage1.Controls.Add(this.label11);
             this.metroTabPage1.Controls.Add(this.label6);
             this.metroTabPage1.Controls.Add(this.btnAccSave);
             this.metroTabPage1.Controls.Add(this.btnAccCancel);
@@ -470,6 +422,7 @@
             this.metroTabPage1.VerticalScrollbarBarColor = true;
             this.metroTabPage1.VerticalScrollbarHighlightOnWheel = false;
             this.metroTabPage1.VerticalScrollbarSize = 1;
+            this.metroTabPage1.Click += new System.EventHandler(this.metroTabPage1_Click);
             // 
             // txtUsername
             // 
@@ -487,29 +440,9 @@
             this.label12.TabIndex = 44;
             this.label12.Text = "Username :";
             // 
-            // userGender
-            // 
-            this.userGender.FormattingEnabled = true;
-            this.userGender.Items.AddRange(new object[] {
-            "Male",
-            "Female"});
-            this.userGender.Location = new System.Drawing.Point(556, 360);
-            this.userGender.Name = "userGender";
-            this.userGender.Size = new System.Drawing.Size(236, 28);
-            this.userGender.TabIndex = 43;
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(495, 363);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(41, 20);
-            this.label7.TabIndex = 42;
-            this.label7.Text = "Sex :";
-            // 
             // txtPhone
             // 
-            this.txtPhone.Location = new System.Drawing.Point(265, 205);
+            this.txtPhone.Location = new System.Drawing.Point(265, 171);
             this.txtPhone.Name = "txtPhone";
             this.txtPhone.Size = new System.Drawing.Size(527, 26);
             this.txtPhone.TabIndex = 41;
@@ -521,14 +454,6 @@
             this.txtEmail.Size = new System.Drawing.Size(527, 26);
             this.txtEmail.TabIndex = 40;
             // 
-            // dob
-            // 
-            this.dob.Location = new System.Drawing.Point(265, 162);
-            this.dob.Name = "dob";
-            this.dob.Size = new System.Drawing.Size(527, 26);
-            this.dob.TabIndex = 39;
-            this.dob.Value = new System.DateTime(2000, 1, 1, 0, 0, 0, 0);
-            // 
             // labelEmail
             // 
             this.labelEmail.AutoSize = true;
@@ -538,19 +463,10 @@
             this.labelEmail.TabIndex = 37;
             this.labelEmail.Text = "Email :";
             // 
-            // label11
-            // 
-            this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(97, 162);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(107, 20);
-            this.label11.TabIndex = 35;
-            this.label11.Text = "Date of Birth :";
-            // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(95, 208);
+            this.label6.Location = new System.Drawing.Point(95, 174);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(60, 20);
             this.label6.TabIndex = 33;
@@ -592,14 +508,14 @@
             this.userRole.Items.AddRange(new object[] {
             "Administrator",
             "Attendant"});
-            this.userRole.Location = new System.Drawing.Point(265, 360);
+            this.userRole.Location = new System.Drawing.Point(265, 326);
             this.userRole.Name = "userRole";
-            this.userRole.Size = new System.Drawing.Size(204, 28);
+            this.userRole.Size = new System.Drawing.Size(527, 28);
             this.userRole.TabIndex = 4;
             // 
             // txtRePass
             // 
-            this.txtRePass.Location = new System.Drawing.Point(265, 309);
+            this.txtRePass.Location = new System.Drawing.Point(265, 275);
             this.txtRePass.Name = "txtRePass";
             this.txtRePass.Size = new System.Drawing.Size(527, 26);
             this.txtRePass.TabIndex = 3;
@@ -607,7 +523,7 @@
             // 
             // txtPass
             // 
-            this.txtPass.Location = new System.Drawing.Point(265, 258);
+            this.txtPass.Location = new System.Drawing.Point(265, 224);
             this.txtPass.Name = "txtPass";
             this.txtPass.Size = new System.Drawing.Size(527, 26);
             this.txtPass.TabIndex = 3;
@@ -623,7 +539,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(95, 363);
+            this.label5.Location = new System.Drawing.Point(95, 329);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(49, 20);
             this.label5.TabIndex = 2;
@@ -632,7 +548,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(95, 312);
+            this.label4.Location = new System.Drawing.Point(95, 278);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(148, 20);
             this.label4.TabIndex = 2;
@@ -641,12 +557,68 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(95, 261);
+            this.label3.Location = new System.Drawing.Point(95, 227);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(87, 20);
             this.label3.TabIndex = 2;
             this.label3.Text = "Password :";
             this.label3.Click += new System.EventHandler(this.label3_Click);
+            // 
+            // Column7
+            // 
+            this.Column7.HeaderText = "No";
+            this.Column7.Name = "Column7";
+            this.Column7.ReadOnly = true;
+            // 
+            // Column1
+            // 
+            this.Column1.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column1.HeaderText = "Username";
+            this.Column1.Name = "Column1";
+            this.Column1.ReadOnly = true;
+            this.Column1.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column1.Width = 106;
+            // 
+            // Column2
+            // 
+            this.Column2.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column2.HeaderText = "Fullname";
+            this.Column2.Name = "Column2";
+            this.Column2.ReadOnly = true;
+            this.Column2.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column2.Width = 96;
+            // 
+            // Column3
+            // 
+            this.Column3.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
+            this.Column3.HeaderText = "Email";
+            this.Column3.Name = "Column3";
+            this.Column3.ReadOnly = true;
+            this.Column3.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            // 
+            // Column5
+            // 
+            this.Column5.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column5.HeaderText = "Phone";
+            this.Column5.Name = "Column5";
+            this.Column5.ReadOnly = true;
+            this.Column5.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column5.Width = 79;
+            // 
+            // Column4
+            // 
+            this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.Column4.HeaderText = "Role";
+            this.Column4.Name = "Column4";
+            this.Column4.ReadOnly = true;
+            this.Column4.Resizable = System.Windows.Forms.DataGridViewTriState.False;
+            this.Column4.Width = 64;
+            // 
+            // Column6
+            // 
+            this.Column6.HeaderText = "Status";
+            this.Column6.Name = "Column6";
+            this.Column6.ReadOnly = true;
             // 
             // User
             // 
@@ -715,20 +687,18 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.DateTimePicker dob;
         private System.Windows.Forms.Label labelEmail;
-        private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox txtPhone;
         private System.Windows.Forms.TextBox txtEmail;
-        private System.Windows.Forms.ComboBox userGender;
-        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.TextBox txtUsername;
+        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column7;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column2;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column3;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column5;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column4;
-        private System.Windows.Forms.TextBox txtUsername;
-        private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn Column6;
     }
 }

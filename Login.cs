@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -7,7 +8,8 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using MySql.Data.MySqlClient;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.StartPanel;
+using System.Xml.Linq;
 namespace ShopInventorySystem
 {
     public partial class Login : Form
@@ -15,56 +17,37 @@ namespace ShopInventorySystem
         public string _pass = "";
         public string _name = "";
         public string _role = "";
-        public bool _isactive;
-
+        public bool _status;
         public Login()
         {
             InitializeComponent();
         }
 
-        private void show_Click(object sender, EventArgs e)
+        private void btnLogin_Click(object sender, EventArgs e)
         {
-            if (password.PasswordChar == '*')
-            {
-                hide.BringToFront();
-                password.PasswordChar = '\0';
-            }
-        }
 
-        private void hide_click(object sender, EventArgs e)
-        {
-            if (password.PasswordChar == '\0')
-            {
-                show.BringToFront();
-                password.PasswordChar = '*';
-            }
-        }
-
-        private void loginBtn_Click(object sender, EventArgs e)
-        {
-            
             DB_Connect.openConn();
             MySqlCommand command;
-            if (username.Text != "" && password.Text != "")
+            if (txtName.Text != "" && txtPass.Text != "")
             {
-                
+
 
                 try
                 {
-                    string  enc_pass = Encrypt.HashString(password.Text);
+                    string encrypt_pass = Encrypt.HashString(txtPass.Text);
                     bool found = false;
-                    string query = "Select * from users where username = '" + username.Text + "' && password ='" + enc_pass + "'";
+                    string query = "Select * from users where username = '" + txtName.Text + "' && password ='" + encrypt_pass + "'";
                     command = new MySqlCommand(query, DB_Connect.con);
                     MySqlDataReader reader = command.ExecuteReader();
                     reader.Read();
                     if (reader.HasRows)
                     {
                         found = true;
-                        _name = reader["name"].ToString();
+                        _name = reader["fullname"].ToString();
                         _role = reader["role"].ToString();
                         _pass = reader["password"].ToString();
-                        _isactive = bool.Parse(reader["is_active"].ToString());
-                        
+                        _status = bool.Parse(reader["status"].ToString());
+
 
                     }
                     else
@@ -76,29 +59,27 @@ namespace ShopInventorySystem
 
                     if (found)
                     {
-                        if (!_isactive)
+                        if (!_status)
                         {
                             MessageBox.Show("Account is deactivate. Unable to login", "Inactive Account", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                             return;
                         }
-                        if (_role == "attendant")
+                        if (_role == "Attendant")
                         {
                             _role = "Attendant";
-                            //MessageBox.Show("Welcome " + _name + " |"+ _role, "ACCESS GRANTED", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            username.Clear();
-                            password.Clear();
+                            txtName.Clear();
+                            txtPass.Clear();
                             this.Hide();
                             AttendantDashboard attendant = new AttendantDashboard();
                             attendant.lblUsername.Text = _name;
                             attendant.lblname.Text = _name + " | " + _role;
                             attendant.ShowDialog();
                         }
-                        else if (_role == "admin")
+                        else if (_role == "Admin")
                         {
                             _role = "Admin";
-                            //MessageBox.Show("Welcome " + _name + " |" + _role, "ACCESS GRANTED", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                            username.Clear();
-                            password.Clear();
+                            txtName.Clear();
+                            txtPass.Clear();
                             this.Hide();
                             AdminDashboard admin = new AdminDashboard();
                             admin.lblUsername.Text = _name;
@@ -126,14 +107,20 @@ namespace ShopInventorySystem
             }
         }
 
-        private void LoginForm_Load(object sender, EventArgs e)
+        private void picClose_Click(object sender, EventArgs e)
         {
-
+            if (MessageBox.Show("Exit Application?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
 
-        private void username_TextChanged(object sender, EventArgs e)
+        private void btnCancel_Click(object sender, EventArgs e)
         {
-
+            if (MessageBox.Show("Exit Application?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                Application.Exit();
+            }
         }
     }
 }

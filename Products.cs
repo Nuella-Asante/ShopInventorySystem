@@ -65,6 +65,24 @@ namespace ShopInventorySystem
                 product.txtPrice.Text = dgvProduct.Rows[e.RowIndex].Cells[5].Value.ToString();
                 product.UDReOrder.Value = int.Parse(dgvProduct.Rows[e.RowIndex].Cells[6].Value.ToString());
                 
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
                 product.txtBarcode.Enabled = false;
                 product.btnSave.Visible = false;
                 product.btnSave.Enabled = false;
