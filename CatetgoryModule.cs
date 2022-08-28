@@ -42,10 +42,10 @@ namespace ShopInventorySystem
             {
                 if (MessageBox.Show("Are you sure you want to save this Category?", "", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    db_con.openConn();
+                    DB_Connect.openConn();
                     MySqlCommand command;
                     string query = "Insert into product_category(name) values(@name)";
-                    command = new MySqlCommand(query, db_con.con);
+                    command = new MySqlCommand(query, DB_Connect.con);
                     command.Parameters.AddWithValue("@name", txtCategory.Text);
                     command.ExecuteNonQuery();
                     MessageBox.Show("Record has been successful saved.", "Point Of Sales");

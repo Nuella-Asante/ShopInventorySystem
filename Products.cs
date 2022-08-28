@@ -24,9 +24,9 @@ namespace ShopInventorySystem
             int i = 0;
             dgvProduct.Rows.Clear();
             string query = "Select * from products order by product_name";
-            db_con.openConn(); 
+            DB_Connect.openConn(); 
             MySqlCommand command;
-            command = new MySqlCommand(query, db_con.con);
+            command = new MySqlCommand(query, DB_Connect.con);
 
             MySqlDataReader dr = command.ExecuteReader();
             while (dr.Read())
@@ -36,7 +36,7 @@ namespace ShopInventorySystem
                 dgvProduct.Rows.Add(i, dr["product_code"].ToString(), dr["product_barcode"].ToString(), dr["product_name"].ToString(), dr["product_category"].ToString(), dr["price"].ToString(), dr["re_order"].ToString());
             }
             dr.Close();
-            db_con.closeConn();
+            DB_Connect.closeConn();
         }
 
         private void ProductsList_Load(object sender, EventArgs e)
@@ -78,12 +78,12 @@ namespace ShopInventorySystem
             {
                 if (MessageBox.Show("Are you sure you want to delete this record?", "Delete Record", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    db_con.openConn();
+                    DB_Connect.openConn();
                     MySqlCommand command;
                     string query = "DELETE FROM products where product_code like '" + dgvProduct[1, e.RowIndex].Value.ToString() + "'";
-                    command = new MySqlCommand(query, db_con.con);
+                    command = new MySqlCommand(query, DB_Connect.con);
                     command.ExecuteNonQuery();
-                    db_con.closeConn();
+                    DB_Connect.closeConn();
                     MessageBox.Show("Product has been successfully deleted.", "Point Of Sales", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 }
             }

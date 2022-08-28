@@ -12,7 +12,7 @@ namespace ShopInventorySystem
 {
     public partial class CreateUpdateProduct : Form
     {
-        db_con db = new db_con();
+        DB_Connect db = new DB_Connect();
         public CreateUpdateProduct()
         {
             InitializeComponent();
@@ -59,10 +59,10 @@ namespace ShopInventorySystem
             {
                 if (MessageBox.Show("Are you sure want to save this product?", "Save Product", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    db_con.openConn();
+                    DB_Connect.openConn();
                     MySqlCommand command;
                     string query = "Insert into products(product_code,product_barcode,product_name,product_category,product_description,price,qty,exp_date,re_order) values(@product_code,@product_barcode,@product_name,@product_category,@product_description,@price,@qty,@exp_date,@re_order)";
-                    command = new MySqlCommand(query, db_con.con);
+                    command = new MySqlCommand(query, DB_Connect.con);
                     command.Parameters.AddWithValue("@product_code", txtPcode.Text);
                     command.Parameters.AddWithValue("@product_barcode", txtBarcode.Text);
                     command.Parameters.AddWithValue("@product_name", txtPname.Text);
@@ -73,7 +73,7 @@ namespace ShopInventorySystem
                     command.Parameters.AddWithValue("@exp_date", expDate.Value.Date);
                     command.Parameters.AddWithValue("@re_order", UDReOrder.Value);
                     command.ExecuteNonQuery();
-                    db_con.closeConn();
+                    DB_Connect.closeConn();
                     MessageBox.Show("Product has been successfully saved.");
                     Clear();
                 }
@@ -93,10 +93,10 @@ namespace ShopInventorySystem
             {
                 if (MessageBox.Show("Are you sure want to update this product?", "Update Product", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
                 {
-                    db_con.openConn();
+                    DB_Connect.openConn();
                     MySqlCommand cm;
                     string query = "UPDATE products SET product_code=@code,product_barcode=@barcode,product_name=@product_name,product_category=@product_category,price=@price,re_order=@re_order WHERE product_code LIKE @code";
-                    cm = new MySqlCommand(query, db_con.con);
+                    cm = new MySqlCommand(query, DB_Connect.con);
                     cm.Parameters.AddWithValue("@code", txtPcode.Text);
                     cm.Parameters.AddWithValue("@barcode", txtBarcode.Text);
                     cm.Parameters.AddWithValue("@product_name", txtPname.Text);
@@ -105,7 +105,7 @@ namespace ShopInventorySystem
                     cm.Parameters.AddWithValue("@re_order", UDReOrder.Value);
                     cm.ExecuteNonQuery();
                     MessageBox.Show("Product has been successfully updated.");
-                    db_con.closeConn();
+                    DB_Connect.closeConn();
                     Clear();
                     this.Dispose();
                 }

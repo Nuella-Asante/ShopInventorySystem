@@ -43,7 +43,7 @@ namespace ShopInventorySystem
         private void loginBtn_Click(object sender, EventArgs e)
         {
             
-            db_con.openConn();
+            DB_Connect.openConn();
             MySqlCommand command;
             if (username.Text != "" && password.Text != "")
             {
@@ -54,7 +54,7 @@ namespace ShopInventorySystem
                     string  enc_pass = Encrypt.HashString(password.Text);
                     bool found = false;
                     string query = "Select * from users where username = '" + username.Text + "' && password ='" + enc_pass + "'";
-                    command = new MySqlCommand(query, db_con.con);
+                    command = new MySqlCommand(query, DB_Connect.con);
                     MySqlDataReader reader = command.ExecuteReader();
                     reader.Read();
                     if (reader.HasRows)
@@ -117,7 +117,7 @@ namespace ShopInventorySystem
                 }
                 finally
                 {
-                    db_con.closeConn();
+                    DB_Connect.closeConn();
                 }
             }
             else

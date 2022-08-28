@@ -24,9 +24,9 @@ namespace ShopInventorySystem
             int i = 0;
             dgvCategory.Rows.Clear();
             string query = "Select * from product_category order by name";
-            db_con.openConn();
+            DB_Connect.openConn();
             MySqlCommand command;
-            command = new MySqlCommand(query, db_con.con);
+            command = new MySqlCommand(query, DB_Connect.con);
             MySqlDataReader dr = command.ExecuteReader();
             while (dr.Read())
             {
@@ -34,7 +34,7 @@ namespace ShopInventorySystem
                 dgvCategory.Rows.Add(i,dr["name"].ToString(), dr["name"].ToString(), dr["name"]);
             }
             dr.Close();
-            db_con.closeConn();
+            DB_Connect.closeConn();
         }
 
         private void ProductCategory_Load(object sender, EventArgs e)
