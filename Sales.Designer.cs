@@ -121,7 +121,7 @@
             // 
             this.lblTotal.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.lblTotal.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblTotal.ForeColor = System.Drawing.Color.Navy;
+            this.lblTotal.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(192)))), ((int)(((byte)(0)))));
             this.lblTotal.Location = new System.Drawing.Point(848, 18);
             this.lblTotal.Name = "lblTotal";
             this.lblTotal.Size = new System.Drawing.Size(139, 20);
@@ -230,7 +230,7 @@
             this.Column9.HeaderText = "Id";
             this.Column9.Name = "Column9";
             this.Column9.Visible = false;
-            this.Column9.Width = 47;
+            this.Column9.Width = 49;
             // 
             // Column3
             // 

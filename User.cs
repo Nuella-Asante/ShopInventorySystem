@@ -91,7 +91,7 @@ namespace ShopInventorySystem
         {
             if ((MessageBox.Show("You chose to remove this account from this System's user list. \n\n Are you sure you want to remove '" + name + "' \\ '" + role + "'", "User Account", MessageBoxButtons.YesNo, MessageBoxIcon.Warning) == DialogResult.Yes))
             {
-                string query = "Delete from users where name = '"+ name +"'";
+                string query = "Delete from users where username = '"+ name +"'";
                 DB_Connect.openConn();
                 MySqlCommand command;
                 command = new MySqlCommand(query, DB_Connect.con);
@@ -238,7 +238,7 @@ namespace ShopInventorySystem
                command = new MySqlCommand(query, db_con.con);
                command.ExecuteNonQuery();
                //dbcon.ExecuteQuery("UPDATE tbUser SET password= '" + txtNPass.Text + "' WHERE username='" + lblUsername.Text + "'");
-               MessageBox.Show("Password has been succefully changed!", "Changed Password", MessageBoxButtons.OK, MessageBoxIcon.Information);
+               MessageBox.Show("Password- has been succefully changed!", "Changed Password", MessageBoxButtons.OK, MessageBoxIcon.Information);
                */
             MessageBox.Show("Password has been succefully changed!", "Changed Password", MessageBoxButtons.OK, MessageBoxIcon.Information);
         }

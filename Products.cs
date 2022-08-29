@@ -64,25 +64,6 @@ namespace ShopInventorySystem
                 product.cboCategory.Text = dgvProduct.Rows[e.RowIndex].Cells[4].Value.ToString();
                 product.txtPrice.Text = dgvProduct.Rows[e.RowIndex].Cells[5].Value.ToString();
                 product.UDReOrder.Value = int.Parse(dgvProduct.Rows[e.RowIndex].Cells[6].Value.ToString());
-                
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
                 product.txtBarcode.Enabled = false;
                 product.btnSave.Visible = false;
                 product.btnSave.Enabled = false;
@@ -96,7 +77,7 @@ namespace ShopInventorySystem
                 {
                     DB_Connect.openConn();
                     MySqlCommand command;
-                    string query = "DELETE FROM products where product_code like '" + dgvProduct[1, e.RowIndex].Value.ToString() + "'";
+                    string query = "DELETE FROM products where id ='" + dgvProduct[1, e.RowIndex].Value.ToString() + "'";
                     command = new MySqlCommand(query, DB_Connect.con);
                     command.ExecuteNonQuery();
                     DB_Connect.closeConn();
