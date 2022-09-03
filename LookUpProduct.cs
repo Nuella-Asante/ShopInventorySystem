@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,8 +19,6 @@ namespace ShopInventorySystem
         public LookUpProduct()
         {
             InitializeComponent();
-            //cn = new SqlConnection(dbcon.myConnection());
-            //cashier = cash;
             LoadProduct();
         }
 
@@ -30,23 +29,24 @@ namespace ShopInventorySystem
 
         public void LoadProduct()
         {
-            /*
             int i = 0;
             dgvProduct.Rows.Clear();
-            cm = new SqlCommand("SELECT p.pcode, p.barcode, p.pdesc, b.brand, c.category, p.price, p.qty FROM tbProduct AS p INNER JOIN tbBrand AS b ON b.id = p.bid INNER JOIN tbCategory AS c on c.id = p.cid WHERE CONCAT(p.pdesc, b.brand, c.category) LIKE '%" + txtSearch.Text + "%'", cn);
-            cn.Open();
-            dr = cm.ExecuteReader();
+            DB_Connect.openConn();
+            MySqlCommand command;
+            string query = "SELECT p.id, p.barcode, p.name, c.name, p.price, p.qty FROM products AS p INNER JOIN category AS c on c.name = p.category WHERE CONCAT(p.name, c.name) LIKE '%" + txtSearch.Text + "%'";
+            command = new MySqlCommand(query, DB_Connect.con);
+            MySqlDataReader dr = command.ExecuteReader();
             while (dr.Read())
             {
                 i++;
-                dgvProduct.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString(), dr[6].ToString());
+                dgvProduct.Rows.Add(i, dr[0].ToString(), dr[1].ToString(), dr[2].ToString(), dr[3].ToString(), dr[4].ToString(), dr[5].ToString());
             }
             dr.Close();
-            cn.Close();
-            */
+            DB_Connect.closeConn();
+
         }
 
-        private void dgvProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
+            private void dgvProduct_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             string colName = dgvProduct.Columns[e.ColumnIndex].Name;
             if (colName == "Select")

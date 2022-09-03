@@ -5,6 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using MySql.Data.MySqlClient;
 using System.Data;
+using System.Windows.Forms;
+
 namespace ShopInventorySystem
 {
     internal class DB_Connect
@@ -55,6 +57,22 @@ namespace ShopInventorySystem
             adapter.Fill(table);
             closeConn();
             return table;
+        }
+
+        public void ExecuteQuery(String sql)
+        {
+            try
+            {
+                openConn();
+                cmd = new MySqlCommand(sql, con);
+                cmd.ExecuteNonQuery();
+                closeConn();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+
         }
     }
 }

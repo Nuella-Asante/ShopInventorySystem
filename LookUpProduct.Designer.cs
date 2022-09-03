@@ -183,7 +183,7 @@ namespace ShopInventorySystem
             // Column4
             // 
             this.Column4.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.Fill;
-            this.Column4.HeaderText = "Description";
+            this.Column4.HeaderText = "Product Name";
             this.Column4.Name = "Column4";
             // 
             // Column6
