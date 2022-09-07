@@ -168,6 +168,12 @@
     <Compile Include="ResetUserPass.Designer.cs">
       <DependentUpon>ResetUserPass.cs</DependentUpon>
     </Compile>
+    <Compile Include="Settle.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Settle.designer.cs">
+      <DependentUpon>Settle.cs</DependentUpon>
+    </Compile>
     <Compile Include="User.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -222,6 +228,9 @@
     </Compile>
     <EmbeddedResource Include="ResetUserPass.resx">
       <DependentUpon>ResetUserPass.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Settle.resx">
+      <DependentUpon>Settle.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="User.resx">
       <DependentUpon>User.cs</DependentUpon>

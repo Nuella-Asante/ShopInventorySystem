@@ -70,6 +70,19 @@ namespace ShopInventorySystem
             }
 
         }
+
+        public void GetCartTotal()
+        {
+            double sales = double.Parse(lblSaleTotal.Text);
+            double vat = sales * 0.12;//VAT: 12% of VAT Payable (Output Tax less Input Tax)
+            double vatable = sales - vat;
+
+            lblVat.Text = vat.ToString("#,##0.00");
+            lblVatable.Text = vatable.ToString("#,##0.00");
+            lblDisplayTotal.Text = sales.ToString("#,##0.00");
+        }
+
+
         public void LoadCart()
         {
             try
@@ -98,9 +111,9 @@ namespace ShopInventorySystem
                 DB_Connect.closeConn();
                 lblSaleTotal.Text = total.ToString("#,##0.00");
                 lblDiscount.Text = discount.ToString("#,##0.00");
-                //GetCartTotal();
-                //if (hascart) { btnClear.Enabled = true; btnSettle.Enabled = true; btnDiscount.Enabled = true; }
-                //else { btnClear.Enabled = false; btnSettle.Enabled = false; btnDiscount.Enabled = false; }
+                GetCartTotal();
+                if (hascart) { btnClear.Enabled = true; btnSettle.Enabled = true; btnClear.Visible = true;btnSettle.Visible = true; }
+                else { btnClear.Enabled = false; btnSettle.Enabled = false; btnClear.Visible = false; btnSettle.Visible = false; }
             }
             catch (Exception ex)
             {
@@ -322,6 +335,28 @@ namespace ShopInventorySystem
                     return;
                 }
             }
+        }
+
+
+        private void btnClear_Click(object sender, EventArgs e)
+        {
+            if (MessageBox.Show("Remove all items from cart?", "Confirm", MessageBoxButtons.YesNo, MessageBoxIcon.Question) == DialogResult.Yes)
+            {
+                MySqlCommand command;
+                DB_Connect.openConn();
+                query = "Delete from cart where transno like'" + lblTranNo.Text + "'";
+                command = new MySqlCommand(query, DB_Connect.con);
+                command.ExecuteNonQuery();
+                MessageBox.Show("All items has been successfully remove", "Remove item", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                LoadCart();
+            }
+        }
+
+        private void btnSettle_Click(object sender, EventArgs e)
+        {
+            Settle settle = new Settle(this);
+            settle.txtSale.Text = lblDisplayTotal.Text;
+            settle.ShowDialog();
         }
     }
     
